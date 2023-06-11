@@ -10,6 +10,7 @@ const char *FILE_PATH = "./resource/bulk_insert.sql";
 const int MAX_INSERT_STR_LENGTH = 5000;
 const int MAX_INSERT_LINES = 9;
 int main(void){
+    // TODO: Allow control via arguments
     debug_mode = ENABLE_DEBUG_MODE;
     
     FILE *fp;
@@ -21,6 +22,7 @@ int main(void){
         return ABNORMAL_END;
     }
 
+    // Substitutes a specified number of lines into a string and displays each line.
     char (*lines)[5000] = (char*) malloc(sizeof(char) *  MAX_INSERT_STR_LENGTH * MAX_INSERT_LINES);
     if (lines == NULL){
         error(" faild calloc\n");

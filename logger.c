@@ -13,6 +13,11 @@ static const char *LOG_LEVEL_INFO = "INFO";
 static const char *LOG_LEVEL_WARNING = "WARNING";
 static const char *LOG_LEVEL_ERROR = "ERROR";
 
+/***
+ * Set buffer to display date and log level to be displayed in log
+ *  @parameter level : Log level
+ *  @parameter buf   : Output string buffer
+ */
 static void get_time_format(const char *level, char *buf){
     time_t t = time(NULL);
     struct tm *local = localtime(&t);
@@ -22,6 +27,7 @@ static void get_time_format(const char *level, char *buf){
 }
 
 void debug(const char *format, ...) {
+    // No log output when debug mode is off
     if (debug_mode == DISABLE_DEBUG_MODE){
         return;
     }
